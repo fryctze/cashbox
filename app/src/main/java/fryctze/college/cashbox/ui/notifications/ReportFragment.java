@@ -10,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import fryctze.college.cashbox.databinding.FragmentNotificationsBinding;
+import fryctze.college.cashbox.databinding.FragmentReportBinding;
 
-public class NotificationsFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+public class ReportFragment extends Fragment {
+
+    private FragmentReportBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        ReportViewModel reportViewModel =
+                new ViewModelProvider(this).get(ReportViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentReportBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        reportViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
