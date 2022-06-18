@@ -1,4 +1,4 @@
-package fryctze.college.cashbox.ui.home;
+package fryctze.college.cashbox.menu.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
