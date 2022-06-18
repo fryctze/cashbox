@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="fryctze.college.cashbox.ui.dashboard.HistoryFragment"
+        android:name="fryctze.college.cashbox.menu.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
 

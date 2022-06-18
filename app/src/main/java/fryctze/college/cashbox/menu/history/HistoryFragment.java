@@ -1,4 +1,4 @@
-package fryctze.college.cashbox.ui.dashboard;
+package fryctze.college.cashbox.menu.history;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

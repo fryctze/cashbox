@@ -1,4 +1,4 @@
-package fryctze.college.cashbox.ui.dashboard;
+package fryctze.college.cashbox.menu.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
