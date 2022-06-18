@@ -1,4 +1,4 @@
-package fryctze.college.cashbox.ui.notifications;
+package fryctze.college.cashbox.menu.report;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

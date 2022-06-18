@@ -1,4 +1,4 @@
-package fryctze.college.cashbox.ui.notifications;
+package fryctze.college.cashbox.menu.report;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="fryctze.college.cashbox.ui.notifications.ReportFragment"
+        android:name="fryctze.college.cashbox.menu.report.ReportFragment"
         android:label="@string/title_report"
         tools:layout="@layout/fragment_report" />
 </navigation>
