@@ -10,9 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CashBox">
         <activity
-            android:name=".MainActivity"
+            android:name=".menu.TabbedActivity"
             android:exported="true"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/Theme.CashBox.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,10 +21,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TempActivity"
-            android:exported="false">
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main">
 
         </activity>
+        <activity
+            android:name=".TempActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>
