@@ -55,6 +55,7 @@
         android:layout_margin="0dp"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:menu="@menu/bottom_nav_menu" />
 
 
