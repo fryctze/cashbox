@@ -37,7 +37,10 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
     private void setupDummyData() {
         ArrayList<ModelTransaction> dataset = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
-            dataset.add(new ModelTransaction("its data number "+i, "31 Feb 2022", "10000"));
+            dataset.add(new ModelTransaction("its data number "+i, "31 Feb 2022", "10000", true));
+        }
+        for (int i = 0; i < 30; i++) {
+            dataset.add(new ModelTransaction("its data number "+i, "31 Feb 2022", "10000", false));
         }
         historyTransactionsAdapter.setDataset(dataset);
     }

@@ -2,11 +2,13 @@ package fryctze.college.cashbox.menu.history;
 
 public class ModelTransaction {
     private String name, date, nominal;
+    private boolean isGain;
 
-    public ModelTransaction(String name, String date, String nominal) {
+    public ModelTransaction(String name, String date, String nominal, boolean isGain) {
         this.name = name;
         this.date = date;
         this.nominal = nominal;
+        this.isGain = isGain;
     }
 
     public String getName() {
@@ -31,5 +33,13 @@ public class ModelTransaction {
 
     public void setNominal(String nominal) {
         this.nominal = nominal;
+    }
+
+    public boolean isGain() {
+        return isGain;
+    }
+
+    public void setGain(boolean gain) {
+        isGain = gain;
     }
 }
