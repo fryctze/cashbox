@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="32sp"
-            tools:text="Rp.130,450,000"/>
+            android:text="Rp.0"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,36 +41,38 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_label_expenses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="Expenses"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    tools:text="Expenses"/>
+                    android:layout_marginTop="16dp"
+                    android:text="Expenses"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/tv_value_expenses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:layout_below="@id/tv_label_expenses"
+                    android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@id/tv_label_expenses"
-                    android:text="Rp.30,000"/>
+                    android:text="Rp.0"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/tv_desc_expenses_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="Actual"
+                    android:layout_below="@id/tv_value_expenses"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@id/tv_value_expenses"/>
+                    android:text="Actual"
+                    android:textSize="14sp" />
 
 
                 <!--<Button
@@ -111,28 +113,29 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_label_income"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="Expenses"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    tools:text="Expenses"/>
+                    android:layout_marginTop="16dp"
+                    android:text="Income"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/tv_value_income"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:layout_below="@id/tv_label_income"
+                    android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@id/tv_label_income"
-                    android:text="Rp.30,000"/>
+                    android:text="Rp.0"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/tv_desc_income_left"
                     android:layout_width="wrap_content"
@@ -172,28 +175,29 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_label_goal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="Expenses"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    tools:text="Expenses"/>
+                    android:layout_marginTop="16dp"
+                    android:text="Goal"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/tv_value_goal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:layout_below="@id/tv_label_goal"
+                    android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@id/tv_label_goal"
-                    android:text="Rp.30,000"/>
+                    android:text="Rp.0"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/tv_desc_goal_left"
                     android:layout_width="wrap_content"

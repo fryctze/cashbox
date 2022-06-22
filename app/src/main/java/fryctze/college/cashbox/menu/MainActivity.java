@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setupBinding();
         setSupportActionBar(binding.toolbar);
         setupBottomNavigation();
-
-        Toast.makeText(this, "created main", Toast.LENGTH_SHORT).show();
     }
 
     private void setupBinding() {

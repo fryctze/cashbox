@@ -7,10 +7,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.ColorSpace;
 
 import java.util.ArrayList;
 
 import fryctze.college.cashbox.menu.history.ModelTransaction;
+import fryctze.college.cashbox.menu.home.ModelGoal;
 
 public class DatabaseHelper {
     private Context context;
@@ -40,13 +42,36 @@ public class DatabaseHelper {
         }
     }
 
-    /*public Cursor getAllPlayers()
-    {
-        String[] columns={Constants.ROW_ID,Constants.NAME,Constants.POSITION};
+    /*public Cursor getAllPlayers() {
+        String[] columns={TRANSACTION_COL_ID,
+                TRANSACTION_COL_NAME,TRANSACTION_COL_DATE, TRANSACTION_COL_NOMINAL};
 
-        return db.query(Constants.TB_NAME,columns,null,null,null,null,null);
+        return db.query(TRANSACTION_COL_NOMINAL,columns,null,null,null,null,null);
 
-    }*/
+    }
+*/
+
+    public ArrayList<ModelTransaction> transactionOfMonth(String month_year){
+        ArrayList<ModelTransaction> listTransaction = new ArrayList<>();
+        Cursor cursor = db.query(true, TABLE_TRANSACTION, new String[] {
+                TRANSACTION_COL_ID,TRANSACTION_COL_NAME, TRANSACTION_COL_DATE, TRANSACTION_COL_NOMINAL,TRANSACTION_COL_IS_GAIN,  TRANSACTION_COL_DESC},
+                TRANSACTION_COL_DATE + " LIKE ?", new String[] {"%"+ month_year +"%" },
+                null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                ModelTransaction row = new ModelTransaction(cursor.getInt(0));
+                row.setName(cursor.getString(1));
+                row.setDate(cursor.getString(2));
+                row.setNominal(cursor.getString(3));
+                row.setGain(cursor.getInt(4) > 0);
+                row.setDesc(cursor.getString(5));
+
+                listTransaction.add(row);
+            } while (cursor.moveToNext());
+        }
+        return listTransaction;
+    }
+
 
     public void insertTransaction(ModelTransaction modelTransaction){
         try {
@@ -58,6 +83,20 @@ public class DatabaseHelper {
             contentValues.put(TRANSACTION_COL_DESC, modelTransaction.getDesc());
 
             db.insert(TABLE_TRANSACTION, null, contentValues);
+        } catch (SQLException exception){
+            exception.printStackTrace();
+        }
+    }
+
+    public void insertGoal(ModelGoal modelGoal){
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(TRANSACTION_COL_NAME, modelGoal.getName());
+            contentValues.put(TRANSACTION_COL_DATE, modelGoal.getDate());
+            contentValues.put(TRANSACTION_COL_NOMINAL, modelGoal.getNominal());
+            contentValues.put(TRANSACTION_COL_DESC, modelGoal.getDesc());
+
+            db.insert(TABLE_GOAL, null, contentValues);
         } catch (SQLException exception){
             exception.printStackTrace();
         }

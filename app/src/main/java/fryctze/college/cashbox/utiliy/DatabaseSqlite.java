@@ -31,6 +31,19 @@ class DatabaseSqlite extends SQLiteOpenHelper {
         } catch (Exception ex){
             ex.printStackTrace();
         }
+
+        try {
+            sqLiteDatabase.execSQL("create table " +
+                    TABLE_TRANSACTION + "(" +
+                    TRANSACTION_COL_ID + " integer primary key autoincrement," +
+                    TRANSACTION_COL_NAME + " text not null," +
+                    TRANSACTION_COL_DATE + " text not null," +
+                    TRANSACTION_COL_NOMINAL + " text not null," +
+                    TRANSACTION_COL_IS_GAIN + " integer default 0," +
+                    TRANSACTION_COL_DESC + " text)");
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     @Override
