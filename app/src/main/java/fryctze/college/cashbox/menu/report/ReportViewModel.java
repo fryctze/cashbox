@@ -10,7 +10,7 @@ public class ReportViewModel extends ViewModel {
 
     public ReportViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("Coming Soon!");
     }
 
     public LiveData<String> getText() {

@@ -67,9 +67,9 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isValid()){
-                    binding.etName.setError("");
-                    binding.etDate.setError("");
-                    binding.etNominal.setError("");
+                    binding.etName.setError(null);
+                    binding.etDate.setError(null);
+                    binding.etNominal.setError(null);
                     if (ISGAIN == 2)
                         addGoal();
                     else
