@@ -42,15 +42,6 @@ public class DatabaseHelper {
         }
     }
 
-    /*public Cursor getAllPlayers() {
-        String[] columns={TRANSACTION_COL_ID,
-                TRANSACTION_COL_NAME,TRANSACTION_COL_DATE, TRANSACTION_COL_NOMINAL};
-
-        return db.query(TRANSACTION_COL_NOMINAL,columns,null,null,null,null,null);
-
-    }
-*/
-
     public ArrayList<ModelTransaction> transactionOfMonth(String month_year){
         ArrayList<ModelTransaction> listTransaction = new ArrayList<>();
         Cursor cursor = db.query(true, TABLE_TRANSACTION, new String[] {
@@ -65,6 +56,26 @@ public class DatabaseHelper {
                 row.setNominal(cursor.getString(3));
                 row.setGain(cursor.getInt(4) > 0);
                 row.setDesc(cursor.getString(5));
+
+                listTransaction.add(row);
+            } while (cursor.moveToNext());
+        }
+        return listTransaction;
+    }
+
+    public ArrayList<ModelGoal> goalOfMonth(String month_year){
+        ArrayList<ModelGoal> listTransaction = new ArrayList<>();
+        Cursor cursor = db.query(true, TABLE_GOAL, new String[] {
+                        TRANSACTION_COL_ID,GOAL_COL_NAME, TRANSACTION_COL_DATE, TRANSACTION_COL_NOMINAL,  TRANSACTION_COL_DESC},
+                TRANSACTION_COL_DATE + " LIKE ?", new String[] {"%"+ month_year +"%" },
+                null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                ModelGoal row = new ModelGoal(cursor.getInt(0));
+                row.setName(cursor.getString(1));
+                row.setDate(cursor.getString(2));
+                row.setNominal(cursor.getString(3));
+                row.setDesc(cursor.getString(4));
 
                 listTransaction.add(row);
             } while (cursor.moveToNext());
@@ -91,10 +102,10 @@ public class DatabaseHelper {
     public void insertGoal(ModelGoal modelGoal){
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put(TRANSACTION_COL_NAME, modelGoal.getName());
-            contentValues.put(TRANSACTION_COL_DATE, modelGoal.getDate());
-            contentValues.put(TRANSACTION_COL_NOMINAL, modelGoal.getNominal());
-            contentValues.put(TRANSACTION_COL_DESC, modelGoal.getDesc());
+            contentValues.put(GOAL_COL_NAME, modelGoal.getName());
+            contentValues.put(GOAL_COL_DATE, modelGoal.getDate());
+            contentValues.put(GOAL_COL_NOMINAL, modelGoal.getNominal());
+            contentValues.put(GOAL_COL_DESC, modelGoal.getDesc());
 
             db.insert(TABLE_GOAL, null, contentValues);
         } catch (SQLException exception){
@@ -105,20 +116,6 @@ public class DatabaseHelper {
     public void deleteTransaction(int id){
         db.delete(TABLE_TRANSACTION, TRANSACTION_COL_ID + " = "+id, null);
     }
-
-   /* public long Delete(int id) {
-        try
-        {
-
-            return db.delete(Contants.TB_NAME,Contants.ROW_ID+" =?",new String[]{String.valueOf(id)});
-
-        }catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-
-        return 0;
-    }*/
 
     public ArrayList<ModelTransaction> getAllTransaction(){
         ArrayList<ModelTransaction> listTransaction = new ArrayList<>();

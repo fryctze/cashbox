@@ -34,13 +34,12 @@ class DatabaseSqlite extends SQLiteOpenHelper {
 
         try {
             sqLiteDatabase.execSQL("create table " +
-                    TABLE_TRANSACTION + "(" +
-                    TRANSACTION_COL_ID + " integer primary key autoincrement," +
-                    TRANSACTION_COL_NAME + " text not null," +
-                    TRANSACTION_COL_DATE + " text not null," +
-                    TRANSACTION_COL_NOMINAL + " text not null," +
-                    TRANSACTION_COL_IS_GAIN + " integer default 0," +
-                    TRANSACTION_COL_DESC + " text)");
+                    TABLE_GOAL + "(" +
+                    GOAL_COL_ID + " integer primary key autoincrement," +
+                    GOAL_COL_NAME + " text not null," +
+                    GOAL_COL_DATE + " text not null," +
+                    GOAL_COL_NOMINAL + " text not null," +
+                    GOAL_COL_DESC + " text)");
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -49,6 +48,7 @@ class DatabaseSqlite extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("drop table if exists "+TABLE_TRANSACTION);
+        sqLiteDatabase.execSQL("drop table if exists "+TABLE_GOAL);
         onCreate(sqLiteDatabase);
     }
 }

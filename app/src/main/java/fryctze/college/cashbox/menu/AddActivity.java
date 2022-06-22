@@ -17,6 +17,7 @@ import fryctze.college.cashbox.R;
 import fryctze.college.cashbox.databinding.ActivityAddBinding;
 import fryctze.college.cashbox.databinding.ActivityMainBinding;
 import fryctze.college.cashbox.menu.history.ModelTransaction;
+import fryctze.college.cashbox.menu.home.ModelGoal;
 import fryctze.college.cashbox.utiliy.DatabaseHelper;
 
 public class AddActivity extends AppCompatActivity {
@@ -134,6 +135,17 @@ public class AddActivity extends AppCompatActivity {
     }
 
     private void addGoal(){
+        DatabaseHelper databaseHelper = new DatabaseHelper(AddActivity.this);
 
+        databaseHelper.openDB();
+        databaseHelper.insertGoal(
+                new ModelGoal(
+                        binding.etName.getText().toString(),
+                        binding.etDate.getText().toString(),
+                        binding.etNominal.getText().toString(),
+                        binding.etDesc.getText().toString()
+                )
+        );
+        databaseHelper.closeDB();
     }
 }

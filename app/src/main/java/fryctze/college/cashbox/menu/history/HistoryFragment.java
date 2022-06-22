@@ -34,6 +34,7 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
 
     ArrayList<ModelTransaction> dataset = new ArrayList<>();
 
+    int selected_id, selected_pos;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
@@ -56,9 +57,11 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
 
     @Override
     public void onClickItem(ModelTransaction model, int pos) {
-        Toast.makeText(getContext(), "clicked "+model.getName(), Toast.LENGTH_SHORT).show();
         detailDate.setText(model.getDate());
         detailName.setText(model.getName());
+        detailDesc.setText(model.getDesc());
+        selected_id = model.getId();
+        selected_pos = pos;
         historyCustomDialog.show();
     }
 
@@ -85,6 +88,8 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                delete();
+                historyCustomDialog.dismiss();
             }
         });
     }
@@ -94,8 +99,25 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
 
         databaseHelper.openDB();
         dataset.clear();
-        dataset = databaseHelper.getAllTransaction();
+        ArrayList<ModelTransaction> data =  databaseHelper.getAllTransaction();
+        for (int i = data.size()-1; i > -1; i--) {
+            dataset.add(data.get(i));
+        }
         historyTransactionsAdapter.setDataset(dataset);
+    }
+
+    private void delete(){
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
+
+        databaseHelper.openDB();
+        dataset.remove(dataset.get(selected_pos));
+        databaseHelper.deleteTransaction(selected_id);
+        historyTransactionsAdapter.setDataset(dataset);
+
+        selected_pos = -1;
+        selected_id = -1;
+
+        Toast.makeText(getContext(), "Successfully delete a data", Toast.LENGTH_SHORT).show();
     }
 
     @Override

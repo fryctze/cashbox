@@ -116,6 +116,15 @@ public class HomeFragment extends Fragment {
         Income = income.toString();
         binding.tvValueExpenses.setText("Rp."+Expenses);
         binding.tvValueIncome.setText("Rp."+Income);
+
+        ArrayList<ModelGoal> goals = databaseHelper.goalOfMonth(formatedDate);
+        Long goal = 0L;
+        for (int i = 0; i < goals.size(); i++) {
+            goal += Long.parseLong(goals.get(i).getNominal());
+        }
+
+        Goal = goal.toString();
+        binding.tvValueGoal.setText("Rp."+goal);
     }
 
     private void fetchTotalData(){
@@ -137,6 +146,8 @@ public class HomeFragment extends Fragment {
         Long current = income - expenses;
         if (current < 0){
             binding.tvCurrentBalance.setTextColor(ResourcesCompat.getColor(getResources(), R.color.red_text, null));
+        } else {
+            binding.tvCurrentBalance.setTextColor(ResourcesCompat.getColor(getResources(), R.color.black, null));
         }
         currentBalance = current.toString();
         binding.tvCurrentBalance.setText("Rp."+currentBalance);
