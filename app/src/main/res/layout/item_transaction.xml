@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginHorizontal="2dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginVertical="8dp">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/tv_nominal"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:text="Buy new clothes asdfasdf sadf sa" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/tv_nominal"
+            android:textSize="14sp"
+            tools:text="10 April 2022" />
+
+        <TextView
+            android:id="@+id/tv_nominal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:text="+203904" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
