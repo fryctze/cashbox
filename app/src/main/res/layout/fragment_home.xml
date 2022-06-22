@@ -89,11 +89,12 @@
                     android:id="@+id/fab_expenses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_alignBottom="@id/tv_desc_expenses_left"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:backgroundTint="@color/primary"
                     app:fabSize="mini"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_baseline_add_24" />
+                    app:tint="@color/white" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -150,11 +151,12 @@
                     android:id="@+id/fab_income"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_alignBottom="@id/tv_desc_income_left"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:backgroundTint="@color/primary"
                     app:fabSize="mini"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_baseline_add_24" />
+                    app:tint="@color/white" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -211,11 +213,12 @@
                     android:id="@+id/fab_goal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_alignBottom="@id/tv_desc_goal_left"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:backgroundTint="@color/primary"
                     app:fabSize="mini"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_baseline_add_24" />
+                    app:tint="@color/white" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
