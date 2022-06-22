@@ -13,9 +13,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-import fryctze.college.cashbox.MainActivity;
+import fryctze.college.cashbox.menu.MainActivity;
 import fryctze.college.cashbox.databinding.FragmentHistoryBinding;
 
 public class HistoryFragment extends Fragment implements HistoryTransactionsAdapter.ItemTransactionClickListener {

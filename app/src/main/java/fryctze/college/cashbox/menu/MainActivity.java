@@ -1,16 +1,14 @@
-package fryctze.college.cashbox;
+package fryctze.college.cashbox.menu;
 
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import fryctze.college.cashbox.R;
 import fryctze.college.cashbox.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
