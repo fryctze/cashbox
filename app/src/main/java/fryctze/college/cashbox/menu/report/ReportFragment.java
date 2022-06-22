@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import fryctze.college.cashbox.databinding.FragmentReportBinding;
+import fryctze.college.cashbox.menu.MainActivity;
 
 
 public class ReportFragment extends Fragment {
@@ -24,6 +25,8 @@ public class ReportFragment extends Fragment {
 
         binding = FragmentReportBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        ((MainActivity) requireActivity()).setTitle("Report");
 
         final TextView textView = binding.textNotifications;
         reportViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
