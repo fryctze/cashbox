@@ -1,14 +1,28 @@
 package fryctze.college.cashbox.menu.history;
 
 public class ModelTransaction {
-    private String name, date, nominal;
+    private int id;
+    private String name, date, nominal, desc;
     private boolean isGain;
 
-    public ModelTransaction(String name, String date, String nominal, boolean isGain) {
+    public ModelTransaction(int id) {
+        this.id = id;
+    }
+
+    public ModelTransaction(String name, String date, String nominal, boolean isGain, String desc) {
         this.name = name;
         this.date = date;
         this.nominal = nominal;
         this.isGain = isGain;
+        this.desc = desc;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,5 +55,13 @@ public class ModelTransaction {
 
     public void setGain(boolean gain) {
         isGain = gain;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

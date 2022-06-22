@@ -1,6 +1,7 @@
 package fryctze.college.cashbox.menu;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setupBinding();
         setSupportActionBar(binding.toolbar);
         setupBottomNavigation();
+
+        Toast.makeText(this, "created main", Toast.LENGTH_SHORT).show();
     }
 
     private void setupBinding() {
@@ -35,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_history, R.id.navigation_report)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-    }
-
-    public void setupToolbar(String title) {
-        getSupportActionBar().setTitle(title);
-        //binding.tvToolbarTitle.setText(title);
     }
 }

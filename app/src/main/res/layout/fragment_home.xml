@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:layout_gravity="center_horizontal"
+            android:text="Current Balance"
             tools:text="Current Balance"/>
 
         <androidx.cardview.widget.CardView

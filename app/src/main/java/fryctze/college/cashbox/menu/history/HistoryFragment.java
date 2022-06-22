@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import fryctze.college.cashbox.R;
 import fryctze.college.cashbox.menu.MainActivity;
 import fryctze.college.cashbox.databinding.FragmentHistoryBinding;
+import fryctze.college.cashbox.utiliy.DatabaseHelper;
 
 public class HistoryFragment extends Fragment implements HistoryTransactionsAdapter.ItemTransactionClickListener {
 
@@ -31,6 +32,8 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
 
     TextView detailDate, detailName, detailNominal, detailDesc;
 
+    ArrayList<ModelTransaction> dataset = new ArrayList<>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
@@ -39,26 +42,10 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
         //((MainActivity) requireActivity()).setupToolbar("History");
         ((MainActivity) requireActivity()).setTitle("History");
         setupListHistoryTransactions();
-        setupDummyData();
         initCustomDialog();
 
+        retrieve();
         return root;
-    }
-
-    private void setupDummyData() {
-        ArrayList<ModelTransaction> dataset = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            dataset.add(new ModelTransaction("its data number "+i, "31 Feb 2022", "10000", true));
-        }
-        for (int i = 0; i < 30; i++) {
-            dataset.add(new ModelTransaction("its data number "+i, "31 Feb 2022", "10000", false));
-        }
-        historyTransactionsAdapter.setDataset(dataset);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
@@ -68,7 +55,7 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
     }
 
     @Override
-    public void onClickItem(ModelTransaction model) {
+    public void onClickItem(ModelTransaction model, int pos) {
         Toast.makeText(getContext(), "clicked "+model.getName(), Toast.LENGTH_SHORT).show();
         detailDate.setText(model.getDate());
         detailName.setText(model.getName());
@@ -102,4 +89,18 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
         });
     }
 
+    private void retrieve(){
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
+
+        databaseHelper.openDB();
+        dataset.clear();
+        dataset = databaseHelper.getAllTransaction();
+        historyTransactionsAdapter.setDataset(dataset);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        retrieve();
+    }
 }

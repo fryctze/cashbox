@@ -33,7 +33,7 @@ public class HistoryTransactionsAdapter extends RecyclerView.Adapter<HistoryTran
             this.binding = binding;
         }
 
-        public void bind(ModelTransaction model, ItemTransactionClickListener listener) {
+        public void bind(ModelTransaction model, int position , ItemTransactionClickListener listener) {
             binding.tvName.setText(model.getName().toString());
             binding.tvDate.setText(model.getDate().toString());
 
@@ -48,7 +48,7 @@ public class HistoryTransactionsAdapter extends RecyclerView.Adapter<HistoryTran
             binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onClickItem(model);
+                    listener.onClickItem(model, position);
                 }
             });
         }
@@ -62,7 +62,7 @@ public class HistoryTransactionsAdapter extends RecyclerView.Adapter<HistoryTran
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(dataset.get(position), listener);
+        holder.bind(dataset.get(position), position, listener);
     }
 
     public void setDataset(ArrayList<ModelTransaction> data) {
@@ -79,7 +79,7 @@ public class HistoryTransactionsAdapter extends RecyclerView.Adapter<HistoryTran
     }
 
     interface ItemTransactionClickListener{
-        void onClickItem(ModelTransaction model);
+        void onClickItem(ModelTransaction model, int pos);
     }
 
 }
