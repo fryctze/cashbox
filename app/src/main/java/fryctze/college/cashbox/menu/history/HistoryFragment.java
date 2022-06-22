@@ -59,6 +59,7 @@ public class HistoryFragment extends Fragment implements HistoryTransactionsAdap
     public void onClickItem(ModelTransaction model, int pos) {
         detailDate.setText(model.getDate());
         detailName.setText(model.getName());
+        detailNominal.setText("Rp"+model.getNominal());
         detailDesc.setText(model.getDesc());
         selected_id = model.getId();
         selected_pos = pos;
