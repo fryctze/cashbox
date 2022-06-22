@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupBinding();
+        setSupportActionBar(binding.toolbar);
         setupBottomNavigation();
     }
 
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setupToolbar(String title) {
-        setSupportActionBar(binding.toolbar);
         getSupportActionBar().setTitle(title);
         //binding.tvToolbarTitle.setText(title);
     }
